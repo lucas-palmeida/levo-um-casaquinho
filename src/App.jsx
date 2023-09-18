@@ -45,7 +45,7 @@ function App() {
   }, [city]);
 
   useEffect(() => {
-    axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`)
+    axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`)
     .then((res) => {
       const arr = [];
       res.data.list.forEach(l => {
