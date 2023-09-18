@@ -2,34 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
 import styled from "styled-components";
+import { colorPalette, translateConditions, weekday } from "./constants/constants.js"
 
 function App() {
-  const translateConditions = {
-    Clear: "Céu aberto",
-    Clouds: "Nublado",
-    Rain: "Chovendo",
-    Snow: "Nevando",
-    Thunderstorm: "Tempestade",
-    Drizzle: "Chuviscando",
-    Mist: "Neblina",
-    Haze: "Neblina"
-  };
-  const colorPalette = {
-    Clear: "yellow",
-    Clouds: "gray",
-    Rain: "blue",
-    Snow: "lightgray",
-    Thunderstorm: "purple",
-    Drizzle: "lightblue",
-    Mist: "lightgray",
-    Haze: "lightgray"
-  }
-  const weekday = { 0: "dom",1: "seg",2: "ter",3: "qua",4: "qui",5: "sex",6: "sab" };
   const [weather, setWeather] = useState(undefined);
   const [forecast, setForecast] = useState(undefined);
-  const [city, setCity] = useState("Londres");
+  const [city, setCity] = useState("Rio de Janeiro");
   const [cityName, setCityName] = useState(undefined);
-  const API_KEY = '323e43779835f7d2177f6e82b295024f';
+  const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
 
   function dateFormatter(date) {
     const testDate = new Date(date);
@@ -37,7 +17,7 @@ function App() {
   }
 
   useEffect(() => {
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`)
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&lang=pt_br`)
     .then((res) => {
       setWeather(res.data)
     })
@@ -45,7 +25,7 @@ function App() {
   }, [city]);
 
   useEffect(() => {
-    axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`)
+    axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&lang=pt_br`)
     .then((res) => {
       const arr = [];
       res.data.list.forEach(l => {

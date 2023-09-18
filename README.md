@@ -1,8 +1,4 @@
-# React + Vite
+# Levo um casaquinho?
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aplicação web front-end utilizando as tecnologias React + Vite para exibir informações climáticas atuais e a previsão do tempo para os próximos dias, de determinada localidade informada pelo usuário. A aplicação faz consumo de uma API externa (openweathermap.org) para a obtenção dos dados exibidos e utiliza a biblioteca Recharts para a configuraçao do gráfico.
+Disponível em: https://levo-um-casaquinho-ten.vercel.app/
