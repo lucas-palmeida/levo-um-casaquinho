@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
 import styled from "styled-components";
-import { colorPalette, translateConditions, weekday } from "./constants/constants.js"
+import { colorPalette, translateConditions, weekday } from "./constants/constants.jsx"
 
 function App() {
   const [weather, setWeather] = useState(undefined);
@@ -49,7 +49,7 @@ function App() {
     setCityName(e.target.value);
   }
 
-  function testando(e) {
+  function searchCity(e) {
     e.preventDefault();
     setCity(cityName);
   }
@@ -57,7 +57,7 @@ function App() {
   return (
     <Container>
       <Title>Levo um casaquinho?</Title>
-      <SearchContainer onSubmit={testando}>
+      <SearchContainer onSubmit={searchCity}>
         <input type="search" name="searchbar" id="searchbar" onChange={handleForm}/>
         <button type="submit">Buscar</button>
       </SearchContainer>
