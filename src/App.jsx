@@ -103,7 +103,7 @@ function App() {
         margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
       >
         <XAxis dataKey="day" />
-        <YAxis />
+        <YAxis domain={[0, 'dataMax + 12']}/>
         <Tooltip />
         <CartesianGrid stroke="#f5f5f5" />
         <Line type="monotone" dataKey="temp" stroke="#ff7300" />
