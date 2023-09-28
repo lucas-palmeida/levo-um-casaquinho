@@ -21,7 +21,14 @@ function App() {
     .then((res) => {
       setWeather(res.data)
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      if(err.response.status === 404) {
+        alert("Cidade não existe!\nVerifique o nome digitado e tente novamente...");
+      }
+      else {
+        console.log(err.response.message);
+      }
+    });
   }, [city]);
 
   useEffect(() => {
@@ -38,7 +45,7 @@ function App() {
       })
       setForecast(arr);
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {});
   }, [city]);
 
   if (weather === undefined || forecast === undefined) {
